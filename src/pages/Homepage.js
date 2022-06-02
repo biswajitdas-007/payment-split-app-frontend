@@ -10,7 +10,7 @@ const drawerWidth = 240;
 const Homepage = () => {
   const [users, setUsers] = useState("");
   const getUsers = () => {
-    fetch("http://localhost:4000/user", {
+    fetch("https://payment-split-web-app.herokuapp.com/user", {
       method: "GET",
       headers: { "Content-Type": "application/json" },
     })

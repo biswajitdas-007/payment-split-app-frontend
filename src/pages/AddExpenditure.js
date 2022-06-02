@@ -17,7 +17,7 @@ const AddExpenditure = () => {
     setExpensesDetails({ ...expensesDetails, [name]: value });
   };
   const handleSubmit = (expenses) => {
-    fetch("http://localhost:4000/create-expenditure", {
+    fetch("https://payment-split-web-app.herokuapp.com/create-expenditure", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(expensesDetails),

@@ -6,7 +6,7 @@ const Login = () => {
   const navigate = useNavigate();
   const handleSubmit = (userDetails) => {
     console.log("FOrm: ", userDetails);
-    fetch("http://localhost:4000/login", {
+    fetch("https://payment-split-web-app.herokuapp.com/login", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(userDetails),
