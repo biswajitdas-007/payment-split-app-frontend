@@ -9,7 +9,7 @@ const drawerWidth = 240;
 const Expenditure = () => {
   const [expenditures, setExpenditures] = useState("");
   const getExpenditures = () => {
-    fetch("https://payment-split-web-app.herokuapp.com/expenditure", {
+    fetch("https://payment-split-web-app-backend.herokuapp.com/expenditure", {
       method: "GET",
       headers: { "Content-Type": "application/json" },
     })

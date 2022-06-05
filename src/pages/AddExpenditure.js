@@ -16,18 +16,25 @@ const AddExpenditure = () => {
   const [expensesDetails, setExpensesDetails] = useState(data);
   const handleChange = (e) => {
     const { value, name } = e.target;
-    setExpensesDetails({ ...expensesDetails, [name]: value });
-  };
-  const handleSubmit = (expenses) => {
     setExpensesDetails({
       ...expensesDetails,
+      [name]: value,
       user: localStorage.getItem("user-id"),
     });
-    fetch("https://payment-split-web-app.herokuapp.com/create-expenditure", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(expensesDetails),
-    })
+  };
+  const handleSubmit = (expenses) => {
+    // setExpensesDetails({
+    //   ...expensesDetails,
+    //   user: localStorage.getItem("user-id"),
+    // });
+    fetch(
+      "https://payment-split-web-app-backend.herokuapp.com/create-expenditure",
+      {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(expensesDetails),
+      }
+    )
       .then((res) => res.json())
       .then((res) => {
         navigate("/Expenditures");
