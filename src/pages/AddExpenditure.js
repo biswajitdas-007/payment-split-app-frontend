@@ -13,6 +13,7 @@ let data = {
 const drawerWidth = 240;
 const AddExpenditure = () => {
   const navigate = useNavigate();
+  const [loading, setLoading] = useState(false);
   const [expensesDetails, setExpensesDetails] = useState(data);
   const handleChange = (e) => {
     const { value, name } = e.target;
@@ -27,6 +28,7 @@ const AddExpenditure = () => {
     //   ...expensesDetails,
     //   user: localStorage.getItem("user-id"),
     // });
+    setLoading(true);
     fetch(
       "https://payment-split-web-app-backend.herokuapp.com/create-expenditure",
       {
@@ -37,6 +39,7 @@ const AddExpenditure = () => {
     )
       .then((res) => res.json())
       .then((res) => {
+        setLoading(false);
         navigate("/Expenditures");
       })
       .catch((err) => console.log("Error: ", err));
@@ -91,7 +94,7 @@ const AddExpenditure = () => {
               onChange={(e) => handleChange(e)}
             />
           </Form.Group>
-          <Button variant="primary" type="submit">
+          <Button disabled={loading} variant="primary" type="submit">
             Submit
           </Button>
         </Form>
