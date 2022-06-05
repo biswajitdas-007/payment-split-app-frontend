@@ -13,6 +13,7 @@ const Homepage = () => {
   const queryParams = new URLSearchParams(window.location.search);
   const ID = queryParams.get("id");
   const getUsers = () => {
+    console.log("Random");
     fetch("https://payment-split-web-app-backend.herokuapp.com/get-users", {
       method: "GET",
       headers: { "Content-Type": "application/json" },
