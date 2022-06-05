@@ -14,11 +14,7 @@ const Routes = () => {
           <Route exact path="/AddExpenditure" element={<AddExpenditure />} />
           <Route exact path="/Expenditures" element={<Expenditure />} />
         </Route>
-        <Route
-          exact
-          path={localStorage.getItem("user-id") ? "/dashboard" : "/"}
-          element={<Login />}
-        />
+        <Route exact path="/" element={<Login />} />
       </AllRoutes>
     </BrowserRouter>
   );

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import FormComponent from "../Components/Login/FormComponent";
 import { useNavigate } from "react-router-dom";
 
@@ -10,6 +10,11 @@ const Login = () => {
       "_self"
     );
   };
+  useEffect(() => {
+    if (localStorage.getItem("user-id")) {
+      window.location = "/dashboard";
+    }
+  }, []);
   return (
     <>
       <FormComponent handleSubmit={handleSubmit} />
