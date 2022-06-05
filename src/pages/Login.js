@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 const Login = () => {
   const navigate = useNavigate();
   const handleSubmit = () => {
-    fetch("https://payment-split-web-app-backend.herokuapp.com/auth/google", {
+    fetch("/auth/google", {
       method: "GET",
       headers: { "Content-Type": "application/json" },
     })

@@ -2,6 +2,7 @@
   "name": "payment-split-web-app",
   "version": "0.1.0",
   "private": true,
+  "proxy": "https://payment-split-web-app-backend.herokuapp.com",
   "dependencies": {
     "@chakra-ui/react": "^2.1.2",
     "@emotion/react": "^11.9.0",
