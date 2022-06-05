@@ -12,7 +12,6 @@ const Homepage = () => {
   const [users, setUsers] = useState("");
   const queryParams = new URLSearchParams(window.location.search);
   const ID = queryParams.get("id");
-  console.log("queryParams: ", queryParams, ID);
   const getUsers = () => {
     fetch("https://payment-split-web-app.herokuapp.com/user", {
       method: "GET",
@@ -24,9 +23,10 @@ const Homepage = () => {
   };
   useEffect(() => {
     getUsers();
-    // if (ID) {
-    //   localStorage.setItem("user-id", ID);
-    // }
+    if (ID) {
+      localStorage.setItem("user-id", ID);
+      window.location = "/dashboard";
+    }
   }, []);
   return (
     <Box sx={{ display: "flex" }}>
