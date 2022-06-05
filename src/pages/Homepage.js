@@ -3,12 +3,22 @@ import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
 import { Table } from "react-bootstrap";
 import Dashboard from "../Components/Dashboard/Dashboard";
+import { useLocation, useSearchParams } from "react-router-dom";
 import { getListSubheaderUtilityClass } from "@mui/material";
 
 const drawerWidth = 240;
 
 const Homepage = () => {
   const [users, setUsers] = useState("");
+  // const ID = useLocation().id;
+  const [searchParams, setSearchParams] = useSearchParams("");
+
+  if (useSearchParams.get("id")) {
+    localStorage.setItem("user-id", useSearchParams.get("id"));
+  } else {
+    searchParams.delete("id");
+    setSearchParams(searchParams);
+  }
   const getUsers = () => {
     fetch("https://payment-split-web-app.herokuapp.com/user", {
       method: "GET",
