@@ -44,6 +44,7 @@ const Expenditure = () => {
                 <th>Type</th>
                 <th>Price</th>
                 <th>user</th>
+                <th>User Image</th>
               </tr>
             </thead>
             <tbody>
@@ -56,6 +57,17 @@ const Expenditure = () => {
                       <td>{item.type}</td>
                       <td>{item.price}</td>
                       <td>{item.user.name}</td>
+                      <td>
+                        <img
+                          src={item.user.img}
+                          alt="user"
+                          style={{
+                            height: "24px",
+                            width: "24px",
+                            borderRadius: "50%",
+                          }}
+                        />
+                      </td>
                     </tr>
                   );
                 })}
