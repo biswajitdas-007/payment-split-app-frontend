@@ -13,7 +13,7 @@ const Homepage = () => {
   const queryParams = new URLSearchParams(window.location.search);
   const ID = queryParams.get("id");
   const getUsers = () => {
-    fetch("https://payment-split-web-app.herokuapp.com/user", {
+    fetch("https://payment-split-web-app-backend.herokuapp.com/user", {
       method: "GET",
       headers: { "Content-Type": "application/json" },
     })
@@ -46,7 +46,8 @@ const Homepage = () => {
             <tr>
               <th>#</th>
               <th>Name</th>
-              <th>Total Due</th>
+              <th>Email</th>
+              <th>Image</th>
             </tr>
           </thead>
           <tbody>
@@ -55,8 +56,11 @@ const Homepage = () => {
                 return (
                   <tr key={index}>
                     <td>{index + 1}</td>
-                    <td>{user.firstName}</td>
-                    <td>{user.totalDue}</td>
+                    <td>{user.name}</td>
+                    <td>{user.email}</td>
+                    <td>
+                      <img src={user.img} alt="user" />
+                    </td>
                   </tr>
                 );
               })}
