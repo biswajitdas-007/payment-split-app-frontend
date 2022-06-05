@@ -13,14 +13,13 @@ const Login = () => {
   useEffect(() => {
     if (localStorage.getItem("user-id")) {
       window.location = "/dashboard";
-    } else {
-      return (
-        <>
-          <FormComponent handleSubmit={handleSubmit} />
-        </>
-      );
     }
   }, []);
+  return (
+    <>
+      <FormComponent handleSubmit={handleSubmit} />
+    </>
+  );
 };
 
 export default Login;
