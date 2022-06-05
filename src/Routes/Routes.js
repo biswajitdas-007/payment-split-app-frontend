@@ -4,14 +4,17 @@ import AddExpenditure from "../pages/AddExpenditure";
 import Homepage from "../pages/Homepage";
 import Login from "../pages/Login";
 import Expenditure from "../pages/Expenditure";
+import { PrivateRoute } from "./PrivateRoute";
 const Routes = () => {
   return (
     <BrowserRouter>
       <AllRoutes>
+        <Route exact element={<PrivateRoute />}>
+          <Route exact path="/dashboard" element={<Homepage />} />
+          <Route exact path="/AddExpenditure" element={<AddExpenditure />} />
+          <Route exact path="/Expenditures" element={<Expenditure />} />
+        </Route>
         <Route exact path="/" element={<Login />} />
-        <Route exact path="/dashboard" element={<Homepage />} />
-        <Route exact path="/AddExpenditure" element={<AddExpenditure />} />
-        <Route exact path="/Expenditures" element={<Expenditure />} />
       </AllRoutes>
     </BrowserRouter>
   );

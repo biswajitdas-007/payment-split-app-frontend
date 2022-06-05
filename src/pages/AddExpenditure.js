@@ -4,6 +4,7 @@ import Toolbar from "@mui/material/Toolbar";
 import Box from "@mui/material/Box";
 import styles from "../assets/css/Login.module.css";
 import Dashboard from "../Components/Dashboard/Dashboard";
+import { useNavigate } from "react-router-dom";
 let data = {
   name: "",
   type: "",
@@ -11,19 +12,23 @@ let data = {
 };
 const drawerWidth = 240;
 const AddExpenditure = () => {
+  const navigate = useNavigate();
   const [expensesDetails, setExpensesDetails] = useState(data);
   const handleChange = (e) => {
     const { value, name } = e.target;
     setExpensesDetails({ ...expensesDetails, [name]: value });
   };
   const handleSubmit = (expenses) => {
+    const data = {};
     fetch("https://payment-split-web-app.herokuapp.com/create-expenditure", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(expensesDetails),
     })
       .then((res) => res.json())
-      .then((res) => console.log("Res: ", res))
+      .then((res) => {
+        navigate("/Expenditures");
+      })
       .catch((err) => console.log("Error: ", err));
   };
   return (

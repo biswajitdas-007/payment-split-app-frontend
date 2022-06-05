@@ -4,15 +4,16 @@ import { useNavigate } from "react-router-dom";
 
 const Login = () => {
   const navigate = useNavigate();
-  const handleSubmit = (userDetails) => {
-    console.log("FOrm: ", userDetails);
-    fetch("https://payment-split-web-app.herokuapp.com/login", {
-      method: "POST",
+  const handleSubmit = () => {
+    fetch("https://payment-split-web-app-backend.herokuapp.com/auth/google", {
+      method: "GET",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(userDetails),
     })
       .then((res) => res.json())
-      .then((res) => navigate("/dashboard"))
+      .then((res) => {
+        localStorage.setItem("user-details", JSON.stringify(res));
+        navigate("/dashboard");
+      })
       .catch((err) => console.log("error: ", err));
   };
   return (
