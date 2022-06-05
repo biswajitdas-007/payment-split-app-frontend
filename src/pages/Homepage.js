@@ -10,8 +10,8 @@ const drawerWidth = 240;
 
 const Homepage = () => {
   const [users, setUsers] = useState("");
-  const ID = useLocation().id;
-
+  const location = useLocation();
+  console.log("location: ", location);
   const getUsers = () => {
     fetch("https://payment-split-web-app.herokuapp.com/user", {
       method: "GET",
@@ -23,9 +23,9 @@ const Homepage = () => {
   };
   useEffect(() => {
     getUsers();
-    if (ID) {
-      localStorage.setItem("user-id", ID);
-    }
+    // if (ID) {
+    //   localStorage.setItem("user-id", ID);
+    // }
   }, []);
   return (
     <Box sx={{ display: "flex" }}>
