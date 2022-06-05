@@ -4,7 +4,7 @@ import AddExpenditure from "../pages/AddExpenditure";
 import Homepage from "../pages/Homepage";
 import Login from "../pages/Login";
 import Expenditure from "../pages/Expenditure";
-import { LoginPrivateRoute, PrivateRoute } from "./PrivateRoute";
+import { PrivateRoute } from "./PrivateRoute";
 const Routes = () => {
   return (
     <BrowserRouter>
@@ -14,13 +14,11 @@ const Routes = () => {
           <Route exact path="/AddExpenditure" element={<AddExpenditure />} />
           <Route exact path="/Expenditures" element={<Expenditure />} />
         </Route>
-        <Route exact element={<LoginPrivateRoute />}>
-          <Route
-            exact
-            path={localStorage.getItem("user-id") ? "/dashboard" : "/"}
-            element={<Login />}
-          />
-        </Route>
+        <Route
+          exact
+          path={localStorage.getItem("user-id") ? "/dashboard" : "/"}
+          element={<Login />}
+        />
       </AllRoutes>
     </BrowserRouter>
   );
