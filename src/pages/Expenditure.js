@@ -15,7 +15,6 @@ const Expenditure = () => {
     })
       .then((res) => res.json())
       .then((res) => {
-        console.log("res: ", res);
         setExpenditures(res);
       })
       .catch((err) => console.log("error: ", err));
@@ -44,6 +43,7 @@ const Expenditure = () => {
                 <th>Name</th>
                 <th>Type</th>
                 <th>Price</th>
+                <th>user</th>
               </tr>
             </thead>
             <tbody>
@@ -55,6 +55,7 @@ const Expenditure = () => {
                       <td>{item.name}</td>
                       <td>{item.type}</td>
                       <td>{item.price}</td>
+                      <td>{item.user.name}</td>
                     </tr>
                   );
                 })}
