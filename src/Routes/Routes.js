@@ -15,7 +15,11 @@ const Routes = () => {
           <Route exact path="/Expenditures" element={<Expenditure />} />
         </Route>
         <Route exact element={<LoginPrivateRoute />}>
-          <Route exact path="/" element={<Login />} />
+          <Route
+            exact
+            path={localStorage.getItem("user-id") ? "/dashboard" : "/"}
+            element={<Login />}
+          />
         </Route>
       </AllRoutes>
     </BrowserRouter>
