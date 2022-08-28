@@ -30,9 +30,9 @@ const Homepage = () => {
     }
   }, []);
   return (
-    <Box sx={{ display: "flex" }}>
+    <Box>
       <Dashboard />
-      <Box
+      {/* <Box
         component="main"
         sx={{
           flexGrow: 1,
@@ -67,7 +67,7 @@ const Homepage = () => {
               })}
           </tbody>
         </Table>
-      </Box>
+      </Box> */}
     </Box>
   );
 };

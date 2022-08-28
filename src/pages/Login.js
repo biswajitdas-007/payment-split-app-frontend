@@ -5,10 +5,7 @@ import { useNavigate } from "react-router-dom";
 const Login = () => {
   const navigate = useNavigate();
   const handleSubmit = () => {
-    window.open(
-      "https://payment-split-web-app-backend.herokuapp.com/auth/google",
-      "_self"
-    );
+    navigate("/dashboard");
   };
   useEffect(() => {
     if (localStorage.getItem("user-id")) {

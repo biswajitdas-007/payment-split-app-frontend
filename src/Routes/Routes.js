@@ -14,6 +14,9 @@ const Routes = () => {
           <Route exact path="/AddExpenditure" element={<AddExpenditure />} />
           <Route exact path="/Expenditures" element={<Expenditure />} />
         </Route>
+        <Route exact path="/dashboard" element={<Homepage />} />
+        <Route exact path="/AddExpenditure" element={<AddExpenditure />} />
+        <Route exact path="/Expenditures" element={<Expenditure />} />
         <Route exact path="/" element={<Login />} />
       </AllRoutes>
     </BrowserRouter>
