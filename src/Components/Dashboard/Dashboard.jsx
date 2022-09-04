@@ -1,5 +1,4 @@
-import * as React from "react";
-import useMediaQuery from "@mui/material/useMediaQuery";
+import React, { useState } from "react";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
 import { useNavigate } from "react-router-dom";
 import {
@@ -13,34 +12,19 @@ import {
   ListItemButton,
   ListItemIcon,
   ListItemText,
-  Divider,
+  Modal,
   Button,
   Drawer,
+  TextField,
 } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
 import InboxIcon from "@mui/icons-material/MoveToInbox";
 import MailIcon from "@mui/icons-material/Mail";
 
 import styles from "./Dashboard.module.css";
-// import PropTypes from "prop-types";
-// import AppBar from "@mui/material/AppBar";
-// import Box from "@mui/material/Box";
-// import CssBaseline from "@mui/material/CssBaseline";
-// import Divider from "@mui/material/Divider";
-// import Drawer from "@mui/material/Drawer";
-// import IconButton from "@mui/material/IconButton";
-// import InboxIcon from "@mui/icons-material/MoveToInbox";
-// import List from "@mui/material/List";
-// import ListItem from "@mui/material/ListItem";
-// import ListItemButton from "@mui/material/ListItemButton";
-// import ListItemIcon from "@mui/material/ListItemIcon";
-// import ListItemText from "@mui/material/ListItemText";
-// import MailIcon from "@mui/icons-material/Mail";
-// import MenuIcon from "@mui/icons-material/Menu";
-// import Toolbar from "@mui/material/Toolbar";
-// import Typography from "@mui/material/Typography";
+import profile_image from "../../assets/images/profile_image.jpeg";
 
-const navItems = ["Home", "About", "Contact"];
+const navItems = ["Home", "Add Expenditure", "Contact"];
 
 const theme = createTheme({
   components: {
@@ -61,13 +45,32 @@ const theme = createTheme({
         },
       },
     },
+    MuiModal: {
+      styleOverrides: {
+        root: {
+          top: "20%",
+          left: "30%",
+          // background: "#256D85",
+          // position: "absolute",
+          // background: "transparent",
+          // height: "50vh",
+          // width: "50vw",
+          // top: "50%",
+          // left: "50%",
+          // transform: "translate(-50%, -50%)",
+          // boxShadow: 24,
+          // p: 4,
+        },
+      },
+    },
   },
 });
 
 function Dashboard(props) {
   const { window } = props;
-  const [mobileOpen, setMobileOpen] = React.useState(false);
-  const [state, setState] = React.useState({
+  const [mobileOpen, setMobileOpen] = useState(false);
+  const [addExpenditureModal, setAddExpenditureModal] = useState(false);
+  const [state, setState] = useState({
     top: false,
     left: false,
     bottom: false,
@@ -91,7 +94,7 @@ function Dashboard(props) {
       onKeyDown={toggleDrawer(anchor, false)}
     >
       <List>
-        {["Home", "About", "Contact"].map((text, index) => (
+        {["Home", "Add Expenditure", "Contact"].map((text, index) => (
           <ListItem key={text} disablePadding>
             <ListItemButton>
               <ListItemIcon>
@@ -104,11 +107,21 @@ function Dashboard(props) {
       </List>
     </Box>
   );
+  const handleNavbarClick = (item) => {
+    if (item === "Add Expenditure") {
+      setAddExpenditureModal(true);
+    } else {
+      setAddExpenditureModal(false);
+    }
+  };
   const navigate = useNavigate();
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
   };
 
+  const handleClick = () => {
+    setAddExpenditureModal(false);
+  };
   return (
     <>
       <ThemeProvider theme={theme}>
@@ -137,7 +150,9 @@ function Dashboard(props) {
               </Typography>
               <Box sx={{ display: { xs: "none", sm: "block" } }}>
                 {navItems.map((item) => (
-                  <Button key={item}>{item}</Button>
+                  <Button key={item} onClick={() => handleNavbarClick(item)}>
+                    {item}
+                  </Button>
                 ))}
               </Box>
             </Toolbar>
@@ -152,6 +167,74 @@ function Dashboard(props) {
             </Drawer>
           </Box>
         </Box>
+      </ThemeProvider>
+      <div className={styles.bodyContainer}>
+        <div className={styles.containers}>
+          <img
+            src={profile_image}
+            alt="profile_image"
+            className={styles.profile_image}
+          />
+        </div>
+        <div className={styles.containers}>
+          <h2>Biswajit Das</h2>
+          <p>
+            Email:{" "}
+            <span>
+              <b>biswajitdas7894@gmail.com</b>
+            </span>
+          </p>
+          <p>
+            Phone:{" "}
+            <span>
+              <b>+918249267182</b>
+            </span>
+          </p>
+          <p>
+            Amount you received:{" "}
+            <span>
+              <b> &#8377; 5000 </b>
+            </span>
+          </p>
+          <p>
+            Total amount to be paid:{" "}
+            <span>
+              <b> &#8377; 10000 </b>
+            </span>
+          </p>
+        </div>
+      </div>
+      <ThemeProvider theme={theme}>
+        <Modal open={addExpenditureModal}>
+          <Box component="form" autoComplete="off" className={styles.Box}>
+            <div>
+              <TextField
+                className={styles.TextField}
+                label="Name of expenditure"
+                helperText="Expenditure name"
+                margin="dense"
+                required="true"
+              />
+            </div>
+            <div>
+              <TextField
+                className={styles.TextField}
+                label="Price"
+                type="number"
+                id="outlined-size-normal"
+                helperText="Expenditure Price"
+                required="true"
+              />
+            </div>
+            <div className={styles.submitBtn}>
+              {/* <ThemeProvider theme={theme}> */}
+              <Button className={styles.btn} onClick={handleClick}>
+                Login
+              </Button>
+              {/* </ThemeProvider> */}
+            </div>
+          </Box>
+        </Modal>
       </ThemeProvider>
     </>
   );

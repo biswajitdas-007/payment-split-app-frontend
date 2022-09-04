@@ -1,12 +1,74 @@
 .hamburger{
     display: none;
 }
-/* @media screen and (max-width: 768px) {
-    .hamburger {
-        display: block;
-    }
-  
-} */
+.bodyContainer {
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 15px;
+}
+.profile_image{
+    border: 1px solid rgb(29, 206, 38);
+    height: 20vh;
+    width: 20vh;
+    border-radius: 50%;
+}
+
+.containers{
+    margin: 5px auto;
+    text-align: center;
+    color: #8FE3CF;
+}
+
+.form {
+    color: aliceblue;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.form>div {
+    align-self: center;
+}
+
+.loginImage {
+    height: 30vh;
+    width: 30vw;
+}
+
+.Box {
+    border-radius: 5px;
+    box-shadow:
+        inset 0 -3em 3em rgba(81, 128, 222, 0.1),
+        0 0 0 2px #8FE3CF,
+        0.3em 0.3em 1em rgba(239, 233, 233, 0.3);
+
+    justify-content: center;
+    background-color: #8FE3CF;
+    width: 40vw;
+    padding: 60px;
+    margin: 10px;
+}
+
+.Box>div {
+    width: 100%;
+    margin: 10px 0;
+}
+
+.TextField {
+    color: rgb(247, 247, 247) !important;
+    border-color: rgb(255, 255, 255);
+
+    width: 100%;
+}
+
+.submitBtn {
+    text-align: center;
+}
+
+
 /* Extra small devices (phones, 600px and down) */
 @media only screen and (max-width: 600px) {
     .hamburger {
