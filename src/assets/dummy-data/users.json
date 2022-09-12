@@ -1,0 +1,31 @@
+[{
+    "name":"Mukul Kumar",
+    "email": "mukul@gmail.com",
+    "phone": 1234567890,
+    "amount": 500
+},{
+    "name":"Vishal Sinha",
+    "email": "vishal@gmail.com",
+    "phone": 1234567890,
+    "amount": 200
+},{
+    "name":"Prajal Bankoti",
+    "email": "prajal@gmail.com",
+    "phone": 1234567890,
+    "amount": 600
+},{
+    "name":"Shubham Shrivastava",
+    "email": "shubaham@gmail.com",
+    "phone": 1234567890,
+    "amount": 900
+},{
+    "name":"Deepak Chaurasiya",
+    "email": "deepak@gmail.com",
+    "phone": 1234567890,
+    "amount": 300
+},{
+    "name":"Nagendra Rawat",
+    "email": "nagendra@gmail.com",
+    "phone": 1234567890,
+    "amount": 400
+}]

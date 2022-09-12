@@ -1,0 +1,23 @@
+.container{
+    float: left;
+    color: #8FE3CF;
+    text-align: center;
+    border: 2px solid #5396e3;
+    width: 30vw;
+    word-wrap: break-word;
+    padding: 10px;
+    box-shadow:
+            inset 0 -3em 3em rgba(81, 128, 222, 0.1),
+            0 0 0 2px #5396e3,
+            0.3em 0.3em 1em rgba(42, 136, 230, 0.3);
+    justify-content: center;
+    align-items: center;
+    align-self: center;
+    margin: 10vh 10vw 5vh 10vw;
+}
+.due{
+    color: red;
+}
+.credit{
+    color:#23e185
+}

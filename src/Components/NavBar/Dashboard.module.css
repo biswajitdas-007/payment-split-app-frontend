@@ -1,16 +1,6 @@
-.formContainer{
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    flex: 1;
-    width: 40vw;
-    margin: 0 auto;
-    padding: 10px;
-}
-.hamburger {
+.hamburger{
     display: none;
 }
-
 .bodyContainer {
 
     display: flex;
@@ -18,15 +8,14 @@
     justify-content: center;
     padding: 15px;
 }
-
-.profile_image {
+.profile_image{
     border: 1px solid rgb(29, 206, 38);
     height: 20vh;
     width: 20vh;
     border-radius: 50%;
 }
 
-.containers {
+.containers{
     margin: 5px auto;
     text-align: center;
     color: #8FE3CF;
@@ -83,48 +72,36 @@
 /* Extra small devices (phones, 600px and down) */
 @media only screen and (max-width: 600px) {
     .hamburger {
-        display: block;
-    }
-
-
+            display: block;
+        }
+    
+       
 }
 
 /* Small devices (portrait tablets and large phones, 600px and up) */
 @media only screen and (min-width: 600px) {
-    .hamburger {
-        display: none;
-    }
+   .hamburger {
+            display: none;
+        }
 }
 
 /* Medium devices (landscape tablets, 768px and up) */
 @media only screen and (min-width: 768px) {
-    .hamburger {
-        display: none;
-    }
+   .hamburger {
+            display: none;
+        }
 }
 
 /* Large devices (laptops/desktops, 992px and up) */
 @media only screen and (min-width: 992px) {
-    .hamburger {
-        display: none;
-    }
+   .hamburger {
+            display: none;
+        }
 }
 
 /* Extra large devices (large laptops and desktops, 1200px and up) */
 @media only screen and (min-width: 1200px) {
-    .hamburger {
-        display: none;
-    }
-}
-
-@media only screen and (max-width: 600px) {
-    .formContainer {
-            display: flex;
-            justify-content: center;
-            flex-direction: column;
-            flex: 1;
-            width: 90vw;
-            margin: 0 auto;
-            padding: 10px;
+   .hamburger {
+            display: none;
         }
 }
